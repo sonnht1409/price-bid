@@ -1,0 +1,31 @@
+os: linux
+language: node_js
+node_js: "10.17"
+
+before_install:
+  - pwd
+  - echo $TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
+after_script:
+  - echo $TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
+
+branches:
+  only:
+    - master
+
+cache:
+  npm: false
+  yarn: false
+
+services:
+  - docker
+install:
+  - npm ci
+  - docker build -t sonnht1409/price-bid:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER .
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
