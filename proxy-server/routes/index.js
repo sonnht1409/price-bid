@@ -7,6 +7,16 @@ logger.level = 'debug'
 
 
 router.get('/health', (req, res) => {
-  res.json({ ok: true });
+  res.json({
+    ok: true
+  });
 });
+
+
+router.get("/user", (req, res) => {
+  res.json({
+    name: "son",
+    age: 18
+  })
+})
 module.exports = router;

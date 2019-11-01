@@ -2,6 +2,8 @@
 import React from "react";
 import { Router, Switch, Route, Link, BrowserRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import useSWR from "swr";
+import axios from "axios";
 
 // import internal component
 import Home from "./page/home";
@@ -16,6 +18,12 @@ import "./App.css";
 const history = createBrowserHistory();
 
 function App() {
+  const { data, error } = useSWR("/api/user", axios);
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+  const { data: response } = data;
+  console.log(response);
+  console.log(error);
   return (
     <BrowserRouter>
       <div className="App">
@@ -33,9 +41,9 @@ function App() {
           </ul>
 
           <Switch>
-            <Route exact path="/" render={Home} />
-            <Route exact path="/login" render={Login} />
-            <Route exact path="/dashboard" render={Dashboard} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/dashboard" component={Dashboard} />
           </Switch>
         </Router>
       </div>
