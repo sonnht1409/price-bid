@@ -2,9 +2,7 @@ os: linux
 language: node_js
 node_js: "10.17"
 
-env:
-  - NODE_ENV=TEST
-before_script:
+before_install:
   - pwd
   - echo $TRAVIS_BUILD_NUMBER
 after_script:
@@ -17,8 +15,6 @@ branches:
 cache:
   npm: false
   yarn: false
-  directories:
-    - node_modules
 
 services:
   - docker
