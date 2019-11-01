@@ -4,7 +4,7 @@ node_js: "10.17"
 
 before_install:
   - pwd
-  - echo $TRAVIS_BUILD_NUMBER
+  - echo $TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
 after_script:
   - echo $TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
 

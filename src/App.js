@@ -19,24 +19,23 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <nav>
+        <Router history={history}>
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/login">About</Link>
+              <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/dashboard">Users</Link>
+              <Link to="/dashboard">Dashboard</Link>
             </li>
           </ul>
-        </nav>
-        <Router history={history}>
+
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/" render={Home} />
+            <Route exact path="/login" render={Login} />
+            <Route exact path="/dashboard" render={Dashboard} />
           </Switch>
         </Router>
       </div>
