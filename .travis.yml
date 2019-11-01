@@ -9,6 +9,7 @@ before_script:
   - echo $TRAVIS_BUILD_NUMBER
 after_script:
   - tree
+  - echo $TRAVIS_BRANCH:$TRAVIS_BUILD_NUMBER
 
 branches:
   only:
@@ -23,4 +24,4 @@ cache:
 services:
   - docker
 install:
-  - docker build -t sonnht1409/price-bid:$TRAVIS_BUILD_NUMBER .
+  - docker build -t sonnht1409/price-bid:$TRAVIS_BRANCH:$TRAVIS_BUILD_NUMBER .
