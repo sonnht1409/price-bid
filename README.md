@@ -1,5 +1,7 @@
 # Pre-commited structure, not finished yet
 
+[![Build Status](https://travis-ci.org/sonnht1409/price-bid.svg?branch=master)](https://travis-ci.org/sonnht1409/price-bid)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This project already set up to support back end proxy

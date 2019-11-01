@@ -19,4 +19,5 @@ cache:
 services:
   - docker
 install:
+  - npm ci
   - docker build -t sonnht1409/price-bid:$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER .
