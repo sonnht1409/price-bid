@@ -8,7 +8,6 @@ before_script:
   - pwd
   - echo $TRAVIS_BUILD_NUMBER
 after_script:
-  - tree
   - echo $TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER
 
 branches:
