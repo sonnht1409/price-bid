@@ -2,13 +2,12 @@ os: linux
 language: node_js
 node_js: "10.16.3"
 
-end:
+env:
   - NODE_ENV=TEST
-
+  - VERSION=$TRAVIS_BUILD_NUMBER
 before_script:
   - pwd
-  - EXPORT VERSION=$TRAVIS_BUILD_NUMBER
-  - echo will build sonnht1409/price-bid:$VERSION
+  - echo will build sonnht1409/price-bid:$TRAVIS_BUILD_NUMBER
 after_script:
   - tree
 
@@ -22,9 +21,7 @@ cache:
   directories:
     - node_modules
 
-sudo: false
-
 services:
   - docker
-script:
-  - docker run build -t sonnht1409/price-bid:$VERSION -f dockerfile .
+install:
+  - docker run build -t sonnht1409/price-bid:$VERSION .
