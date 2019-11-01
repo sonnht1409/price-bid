@@ -7,7 +7,8 @@ end:
 
 before_script:
   - pwd
-  - echo will build bid-price/$TRAVIS_BUILD_NUMBER
+  - EXPORT VERSION=$TRAVIS_BUILD_NUMBER
+  - echo will build sonnht1409/price-bid:$VERSION
 after_script:
   - tree
 
@@ -26,4 +27,4 @@ sudo: false
 services:
   - docker
 script:
-  - docker run build -t bid-price/$TRAVIS_BUILD_NUMBER -f dockerfile .
+  - docker run build -t sonnht1409/price-bid:$VERSION -f dockerfile .

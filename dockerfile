@@ -1,4 +1,4 @@
-FROM node:10.16.3-alpine as builder
+FROM node:10.16.3-alpine
 WORKDIR /bid-price
 RUN pwd
 COPY . .
